@@ -1,7 +1,7 @@
 {
   "name": "sugo-interface-say",
-  "version": "1.0.0",
-  "description": "Say command interface for SUGOS",
+  "version": "1.0.1",
+  "description": "Say command interface for SUGOS. (For OSX only now)",
   "main": "lib",
   "scripts": {
     "prepublish": "./ci/build.js",
