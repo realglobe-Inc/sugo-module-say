@@ -1,6 +1,6 @@
 {
   "name": "sugo-interface-say",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Say command interface for SUGOS. (Supports only OSX)",
   "main": "lib",
   "scripts": {
@@ -26,8 +26,8 @@
     "co": "^4.6.0",
     "debug": "^2.2.0",
     "defaults": "^1.0.3",
-    "sg-check": "^1.0.1",
-    "sugo-interface-shell": "^1.0.3"
+    "sg-check": "^1.0.2",
+    "sugo-interface-shell": "^1.0.4"
   },
   "devDependencies": {
     "ape-tmpl": "^5.0.2",
@@ -35,8 +35,8 @@
     "injectmock": "^2.0.0",
     "sg-schemas": "^1.1.3",
     "sg-validator": "^1.0.0",
-    "sugos-assets": "^1.1.5",
-    "sugos-ci": "^1.2.4"
+    "sugo-ci-interface": "^1.0.0",
+    "sugos-assets": "^1.1.9"
   },
   "engines": {
     "node": ">=6",
