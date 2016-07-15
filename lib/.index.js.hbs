@@ -5,12 +5,12 @@
 
 'use strict'
 
-const sugoInterfaceSay = require('./sugo_interface_say')
+const sugoModuleSay = require('./sugo_module_say')
 
-let lib = sugoInterfaceSay.bind(this)
+let lib = sugoModuleSay.bind(this)
 
-Object.assign(lib, sugoInterfaceSay, {
-  sugoInterfaceSay
+Object.assign(lib, sugoModuleSay, {
+  sugoModuleSay
 })
 
 module.exports = lib
