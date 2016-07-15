@@ -6,6 +6,7 @@
 
 const sugoModuleSay = require('../lib/sugo_module_say.js')
 const assert = require('assert')
+const asleep = require('asleep')
 const sgSchemas = require('sg-schemas')
 const sgValidator = require('sg-validator')
 const co = require('co')
@@ -32,7 +33,7 @@ describe('sugo-module-say', () => {
 
   it('Try ping-pong', () => co(function * () {
     let module = sugoModuleSay({ sayCommand, voiceDir })
-    let pong = yield module.ping({ params: [ 'pong' ] })
+    let pong = yield module.ping('pong')
     assert.equal(pong, 'pong')
   }))
 
@@ -40,12 +41,25 @@ describe('sugo-module-say', () => {
     let module = sugoModuleSay({ sayCommand, voiceDir })
     let caught
     try {
-      yield module.assert({})
+      yield module.assert()
     } catch (err) {
       console.log(err)
       caught = err
     }
     assert.ok(!caught)
+  }))
+
+  it('Say if possible', () => co(function * () {
+    try {
+      let say = Object.assign(sugoModuleSay(), {
+        on() {}
+      })
+      yield say.say('Here we are!')
+      yield asleep(100)
+    } catch (e) {
+      // DO nothing
+      console.log(e)
+    }
   }))
 
   it('Compare methods with spec', () => co(function * () {

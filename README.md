@@ -53,6 +53,7 @@ Say command module for SUGOS. (Supports only OSX)
 <!-- Section from "doc/guides/00.Requirements.md.hbs" Start -->
 
 <a name="section-doc-guides-00-requirements-md"></a>
+
 Requirements
 -----
 <a href="http://www.apple.com/mac/">
@@ -91,6 +92,7 @@ This modules uses `say` command of OSX, thus you need a mac.
 <!-- Section from "doc/guides/01.Installation.md.hbs" Start -->
 
 <a name="section-doc-guides-01-installation-md"></a>
+
 Installation
 -----
 
@@ -104,6 +106,7 @@ $ npm install sugo-module-say --save
 <!-- Section from "doc/guides/02.Usage.md.hbs" Start -->
 
 <a name="section-doc-guides-02-usage-md"></a>
+
 Usage
 ---------
 
@@ -145,6 +148,7 @@ Then, call the module from remote caller.
 <!-- Section from "doc/guides/03.Methods.md.hbs" Start -->
 
 <a name="section-doc-guides-03-methods-md"></a>
+
 Methods
 ---------
 
