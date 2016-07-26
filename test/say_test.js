@@ -10,10 +10,11 @@ const asleep = require('asleep')
 const sgSchemas = require('sg-schemas')
 const sgValidator = require('sg-validator')
 const co = require('co')
+const { EventEmitter } = require('events')
 
 describe('sugo-module-say', () => {
-  let sayCommand = `${__dirname}/../doc/mocks/mock-say.sh`
-  let voiceDir = `${__dirname}/../doc/mocks/mock-voices`
+  let sayCommand = `${__dirname}/../misc/mocks/mock-say.sh`
+  let voiceDir = `${__dirname}/../misc/mocks/mock-voices`
   before(() => co(function * () {
 
   }))
@@ -51,9 +52,11 @@ describe('sugo-module-say', () => {
 
   it('Say if possible', () => co(function * () {
     try {
-      let say = Object.assign(new Say(), {
+      let say = Object.assign(new Say({ $emitter: new EventEmitter }), {
         on () {}
       })
+      let voices = yield say.voices()
+      assert.ok(voices)
       yield say.say('Here we are!')
       yield asleep(100)
     } catch (e) {
