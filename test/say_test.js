@@ -1,10 +1,10 @@
 /**
- * Test case for sugoModuleSay.
+ * Test case for Say.
  * Runs with mocha.
  */
 'use strict'
 
-const sugoModuleSay = require('../lib/sugo_module_say.js')
+const Say = require('../lib/say.js')
 const assert = require('assert')
 const asleep = require('asleep')
 const sgSchemas = require('sg-schemas')
@@ -23,7 +23,7 @@ describe('sugo-module-say', () => {
   }))
 
   it('Get module spec', () => co(function * () {
-    let module = sugoModuleSay({ sayCommand, voiceDir })
+    let module = new Say({ sayCommand, voiceDir })
     assert.ok(module)
 
     let { $spec } = module
@@ -32,13 +32,13 @@ describe('sugo-module-say', () => {
   }))
 
   it('Try ping-pong', () => co(function * () {
-    let module = sugoModuleSay({ sayCommand, voiceDir })
+    let module = new Say({ sayCommand, voiceDir })
     let pong = yield module.ping('pong')
     assert.equal(pong, 'pong')
   }))
 
   it('Do assert', () => co(function * () {
-    let module = sugoModuleSay({ sayCommand, voiceDir })
+    let module = new Say({ sayCommand, voiceDir })
     let caught
     try {
       yield module.assert()
@@ -51,8 +51,8 @@ describe('sugo-module-say', () => {
 
   it('Say if possible', () => co(function * () {
     try {
-      let say = Object.assign(sugoModuleSay(), {
-        on() {}
+      let say = Object.assign(new Say(), {
+        on () {}
       })
       yield say.say('Here we are!')
       yield asleep(100)
@@ -63,9 +63,11 @@ describe('sugo-module-say', () => {
   }))
 
   it('Compare methods with spec', () => co(function * () {
-    let module = sugoModuleSay({ sayCommand, voiceDir })
+    let module = new Say({ sayCommand, voiceDir })
     let { $spec } = module
-    let implemented = Object.keys(module).filter((name) => !/^[\$_]/.test(name))
+    let implemented = Object.getOwnPropertyNames(Say.prototype)
+      .filter((name) => !/^[\$_]/.test(name))
+      .filter((name) => !~[ 'constructor' ].indexOf(name))
     let described = Object.keys($spec.methods).filter((name) => !/^[\$_]/.test(name))
     for (let name of implemented) {
       assert.ok(!!~described.indexOf(name), `${name} method should be described in spec`)

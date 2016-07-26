@@ -1,6 +1,6 @@
 {
   "name": "sugo-module-say",
-  "version": "3.0.1",
+  "version": "4.0.1",
   "description": "Say command module for SUGOS. (Supports only OSX)",
   "main": "lib",
   "scripts": {
@@ -26,8 +26,8 @@
     "co": "^4.6.0",
     "debug": "^2.2.0",
     "defaults": "^1.0.3",
-    "sg-check": "^1.0.3",
-    "sugo-module-shell": "^3.0.0"
+    "sg-check": "^1.0.6",
+    "sugo-module-shell": "^4.0.0"
   },
   "devDependencies": {
     "ape-tmpl": "^5.0.14",
@@ -35,8 +35,10 @@
     "coz": "^6.0.14",
     "injectmock": "^2.0.0",
     "sg-schemas": "^2.0.5",
+    "sg-templates": "^1.0.3",
     "sg-validator": "^1.0.0",
-    "sugo-ci-module": "^2.0.2",
+    "sugo-ci-module": "^2.0.5",
+    "sugo-module-base": "^1.0.5",
     "sugos-assets": "^2.0.1"
   },
   "engines": {
