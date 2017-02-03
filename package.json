@@ -1,6 +1,6 @@
 {
   "name": "sugo-module-say",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "Say command module for SUGOS. (Supports only OSX)",
   "main": "lib",
   "scripts": {
